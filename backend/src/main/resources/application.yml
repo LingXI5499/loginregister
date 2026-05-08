@@ -57,6 +57,12 @@ security:
     max-send-per-hour-ip: ${EMAIL_CODE_MAX_SEND_PER_HOUR_IP:20}
     max-attempts: ${EMAIL_CODE_MAX_ATTEMPTS:5}
 
+auth:
+  cleanup:
+    fixed-delay-ms: ${AUTH_CLEANUP_FIXED_DELAY_MS:600000}
+    verification-retention-days: ${AUTH_VERIFICATION_RETENTION_DAYS:7}
+    session-retention-days: ${AUTH_SESSION_RETENTION_DAYS:30}
+
 account:
   delete:
     cooldown-days: ${ACCOUNT_DELETE_COOLDOWN_DAYS:7}

@@ -1,1 +1,4 @@
-package com.smartblog.vo; public record CurrentUser(Long userId, String username, String sessionId){}
+package com.smartblog.vo;
+
+public record CurrentUser(Long userId, String username, String sessionId) {
+}

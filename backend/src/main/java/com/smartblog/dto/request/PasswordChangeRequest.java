@@ -1,1 +1,7 @@
-package com.smartblog.dto.request; import jakarta.validation.constraints.*; public record PasswordChangeRequest(@NotBlank(message="旧密码不能为空") String oldPassword, @NotBlank(message="新密码不能为空") @Size(min=6,max=64,message="新密码长度必须在 6~64 位之间") String newPassword){}
+package com.smartblog.dto.request;
+
+import jakarta.validation.constraints.*;
+
+public record PasswordChangeRequest(@NotBlank(message = "旧密码不能为空") String oldPassword,
+                                    @NotBlank(message = "新密码不能为空") @Size(min = 6, max = 64, message = "新密码长度必须在 6~64 位之间") String newPassword) {
+}

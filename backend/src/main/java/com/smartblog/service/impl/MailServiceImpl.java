@@ -52,6 +52,7 @@ public class MailServiceImpl implements MailService {
             case AuthConstants.SCENE_RESET_PASSWORD -> "重置密码";
             case AuthConstants.SCENE_DELETE_ACCOUNT -> "注销账号";
             case AuthConstants.SCENE_CANCEL_DELETE_ACCOUNT -> "取消注销账号";
+            case AuthConstants.SCENE_CHANGE_EMAIL -> "邮箱换绑";
             default -> "操作";
         };
     }

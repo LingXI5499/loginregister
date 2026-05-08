@@ -28,7 +28,7 @@ CREATE TABLE users (
 CREATE TABLE user_identities (
                                  id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
                                  user_id BIGINT NOT NULL COMMENT '用户ID',
-                                 identity_type VARCHAR(20) NOT NULL COMMENT 'USERNAME/EMAIL/PHONE',
+                                 identity_type VARCHAR(20) NOT NULL COMMENT 'USERNAME/EMAIL',
                                  identity_value VARCHAR(100) NOT NULL COMMENT '原始标识值',
                                  normalized_value VARCHAR(100) NOT NULL COMMENT '规范化标识值',
                                  verified TINYINT NOT NULL DEFAULT 0 COMMENT '是否已验证:1是,0否',
@@ -90,8 +90,8 @@ CREATE TABLE auth_sessions (
 
 CREATE TABLE verification_challenges (
                                          id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
-                                         scene VARCHAR(40) NOT NULL COMMENT 'REGISTER_EMAIL/LOGIN_EMAIL/RESET_PASSWORD/DELETE_ACCOUNT',
-                                         target VARCHAR(100) NOT NULL COMMENT '邮箱或手机号',
+                                         scene VARCHAR(40) NOT NULL COMMENT 'REGISTER_EMAIL/LOGIN_EMAIL/RESET_PASSWORD/DELETE_ACCOUNT/CANCEL_DELETE_ACCOUNT/CHANGE_EMAIL',
+                                         target VARCHAR(100) NOT NULL COMMENT '邮箱',
                                          code_hash VARCHAR(255) NOT NULL COMMENT '验证码哈希',
                                          expire_time DATETIME NOT NULL COMMENT '过期时间',
                                          used_time DATETIME DEFAULT NULL COMMENT '使用时间',
@@ -102,13 +102,14 @@ CREATE TABLE verification_challenges (
 
                                          KEY idx_challenge_target_scene (target, scene),
                                          KEY idx_challenge_scene_ip_time (scene, send_ip, create_time),
-                                         KEY idx_challenge_active_lookup (scene, target, status, used_time, expire_time, create_time)
+                                         KEY idx_challenge_active_lookup (scene, target, status, used_time, expire_time, create_time),
+                                         KEY idx_challenge_status_expire (status, expire_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='验证码挑战表';
 
 CREATE TABLE security_events (
                                  id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
                                  user_id BIGINT DEFAULT NULL COMMENT '用户ID，可为空',
-                                 event_type VARCHAR(50) NOT NULL COMMENT 'REGISTER/LOGIN_SUCCESS/LOGIN_FAIL/LOGOUT/PASSWORD_CHANGE/PASSWORD_RESET/EMAIL_CODE_SEND/DELETE_REQUEST',
+                                 event_type VARCHAR(50) NOT NULL COMMENT 'REGISTER/LOGIN_SUCCESS/LOGIN_FAIL/LOGOUT/PASSWORD_CHANGE/PASSWORD_RESET/EMAIL_CODE_SEND/EMAIL_CHANGE/PROFILE_UPDATE/DELETE_REQUEST',
                                  event_result VARCHAR(20) NOT NULL COMMENT 'SUCCESS/FAIL',
                                  ip VARCHAR(64) DEFAULT NULL COMMENT '来源IP',
                                  user_agent VARCHAR(500) DEFAULT NULL COMMENT 'User-Agent',
@@ -143,5 +144,4 @@ CREATE TABLE account_deletion_requests (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='账号注销申请表';
 
 
-
-
+select *from users;

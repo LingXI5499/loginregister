@@ -1,13 +1,10 @@
 package com.smartblog.util;
 
 public class AuthConstants {
-
-    private AuthConstants() {
-    }
+    private AuthConstants() {}
 
     public static final String IDENTITY_USERNAME = "USERNAME";
     public static final String IDENTITY_EMAIL = "EMAIL";
-
     public static final String CREDENTIAL_PASSWORD = "PASSWORD";
 
     public static final String SCENE_REGISTER = "REGISTER_EMAIL";
@@ -15,6 +12,7 @@ public class AuthConstants {
     public static final String SCENE_RESET_PASSWORD = "RESET_PASSWORD";
     public static final String SCENE_DELETE_ACCOUNT = "DELETE_ACCOUNT";
     public static final String SCENE_CANCEL_DELETE_ACCOUNT = "CANCEL_DELETE_ACCOUNT";
+    public static final String SCENE_CHANGE_EMAIL = "CHANGE_EMAIL";
 
     public static final String EVENT_REGISTER = "REGISTER";
     public static final String EVENT_LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -23,6 +21,8 @@ public class AuthConstants {
     public static final String EVENT_PASSWORD_CHANGE = "PASSWORD_CHANGE";
     public static final String EVENT_PASSWORD_RESET = "PASSWORD_RESET";
     public static final String EVENT_EMAIL_CODE_SEND = "EMAIL_CODE_SEND";
+    public static final String EVENT_EMAIL_CHANGE = "EMAIL_CHANGE";
+    public static final String EVENT_PROFILE_UPDATE = "PROFILE_UPDATE";
     public static final String EVENT_DELETE_REQUEST = "DELETE_REQUEST";
     public static final String EVENT_DELETE_CANCEL = "DELETE_CANCEL";
     public static final String EVENT_DELETE_FINALIZE = "DELETE_FINALIZE";

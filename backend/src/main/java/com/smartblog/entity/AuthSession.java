@@ -1,4 +1,132 @@
 package com.smartblog.entity;
+
 import java.time.LocalDateTime;
-public class AuthSession { private Long id; private String sessionId; private Long userId; private String deviceId; private String accessTokenJti; private String refreshTokenHash; private String ip; private String userAgent; private String deviceName; private Integer status; private LocalDateTime expireTime; private LocalDateTime revokedTime; private LocalDateTime createTime; private LocalDateTime updateTime;
-public Long getId(){return id;} public void setId(Long id){this.id=id;} public String getSessionId(){return sessionId;} public void setSessionId(String sessionId){this.sessionId=sessionId;} public Long getUserId(){return userId;} public void setUserId(Long userId){this.userId=userId;} public String getDeviceId(){return deviceId;} public void setDeviceId(String deviceId){this.deviceId=deviceId;} public String getAccessTokenJti(){return accessTokenJti;} public void setAccessTokenJti(String accessTokenJti){this.accessTokenJti=accessTokenJti;} public String getRefreshTokenHash(){return refreshTokenHash;} public void setRefreshTokenHash(String refreshTokenHash){this.refreshTokenHash=refreshTokenHash;} public String getIp(){return ip;} public void setIp(String ip){this.ip=ip;} public String getUserAgent(){return userAgent;} public void setUserAgent(String userAgent){this.userAgent=userAgent;} public String getDeviceName(){return deviceName;} public void setDeviceName(String deviceName){this.deviceName=deviceName;} public Integer getStatus(){return status;} public void setStatus(Integer status){this.status=status;} public LocalDateTime getExpireTime(){return expireTime;} public void setExpireTime(LocalDateTime expireTime){this.expireTime=expireTime;} public LocalDateTime getRevokedTime(){return revokedTime;} public void setRevokedTime(LocalDateTime revokedTime){this.revokedTime=revokedTime;} public LocalDateTime getCreateTime(){return createTime;} public void setCreateTime(LocalDateTime createTime){this.createTime=createTime;} public LocalDateTime getUpdateTime(){return updateTime;} public void setUpdateTime(LocalDateTime updateTime){this.updateTime=updateTime;} }
+
+public class AuthSession {
+    private Long id;
+    private String sessionId;
+    private Long userId;
+    private String deviceId;
+    private String accessTokenJti;
+    private String refreshTokenHash;
+    private String ip;
+    private String userAgent;
+    private String deviceName;
+    private Integer status;
+    private LocalDateTime expireTime;
+    private LocalDateTime revokedTime;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getAccessTokenJti() {
+        return accessTokenJti;
+    }
+
+    public void setAccessTokenJti(String accessTokenJti) {
+        this.accessTokenJti = accessTokenJti;
+    }
+
+    public String getRefreshTokenHash() {
+        return refreshTokenHash;
+    }
+
+    public void setRefreshTokenHash(String refreshTokenHash) {
+        this.refreshTokenHash = refreshTokenHash;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getUserAgent() {
+        return userAgent;
+    }
+
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+
+    public String getDeviceName() {
+        return deviceName;
+    }
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(LocalDateTime expireTime) {
+        this.expireTime = expireTime;
+    }
+
+    public LocalDateTime getRevokedTime() {
+        return revokedTime;
+    }
+
+    public void setRevokedTime(LocalDateTime revokedTime) {
+        this.revokedTime = revokedTime;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+}
