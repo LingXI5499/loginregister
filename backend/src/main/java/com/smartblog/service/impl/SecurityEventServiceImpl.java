@@ -1,3 +1,35 @@
 package com.smartblog.service.impl;
-import com.smartblog.entity.SecurityEvent; import com.smartblog.mapper.SecurityEventMapper; import com.smartblog.service.SecurityEventService; import com.smartblog.util.RequestUtil; import jakarta.servlet.http.HttpServletRequest; import org.springframework.stereotype.Service; import java.time.LocalDateTime;
-@Service public class SecurityEventServiceImpl implements SecurityEventService { private final SecurityEventMapper mapper; public SecurityEventServiceImpl(SecurityEventMapper mapper){this.mapper=mapper;} public void log(Long userId,String eventType,String result,HttpServletRequest request,String detail){SecurityEvent e=new SecurityEvent(); e.setUserId(userId); e.setEventType(eventType); e.setEventResult(result); e.setIp(request==null?null:RequestUtil.getClientIp(request)); e.setUserAgent(request==null?null:RequestUtil.getUserAgent(request)); e.setDetail(detail!=null&&detail.length()>500?detail.substring(0,500):detail); mapper.insert(e);} public int countRecentLoginFailures(String account,String ip,LocalDateTime since){return mapper.countRecentLoginFailures(account,ip,since);} }
+
+import com.smartblog.entity.SecurityEvent;
+import com.smartblog.mapper.SecurityEventMapper;
+import com.smartblog.service.SecurityEventService;
+import com.smartblog.util.RequestUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+
+@Service
+public class SecurityEventServiceImpl implements SecurityEventService {
+
+    private final SecurityEventMapper mapper;
+
+    public SecurityEventServiceImpl(SecurityEventMapper mapper) {
+        this.mapper = mapper;
+    }
+
+    public void log(Long userId, String eventType, String result, HttpServletRequest request, String detail) {
+        SecurityEvent e = new SecurityEvent();
+        e.setUserId(userId);
+        e.setEventType(eventType);
+        e.setEventResult(result);
+        e.setIp(request == null ? null : RequestUtil.getClientIp(request));
+        e.setUserAgent(request == null ? null : RequestUtil.getUserAgent(request));
+        e.setDetail(detail != null && detail.length() > 500 ? detail.substring(0, 500) : detail);
+        mapper.insert(e);
+    }
+
+    public int countRecentLoginFailures(String account, String ip, LocalDateTime since) {
+        return mapper.countRecentLoginFailures(account, ip, since);
+    }
+}

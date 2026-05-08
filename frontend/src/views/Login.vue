@@ -12,7 +12,7 @@
       <div class="form-item"><label>验证码</label><input class="input" v-model="emailForm.code" placeholder="请输入 6 位验证码" /></div>
       <button class="btn btn-primary submit-btn" :disabled="loading">{{ loading ? '登录中...' : '验证码登录' }}</button>
     </form>
-    <p class="tip-text"><span @click="$router.push('/forgot-password')">忘记密码</span> · 没有账号？<span @click="$router.push('/register')">去注册</span></p>
+    <p class="tip-text"><span @click="$router.push('/forgot-password')">忘记密码</span> · <span @click="$router.push('/cancel-delete')">取消注销</span> · 没有账号？<span @click="$router.push('/register')">去注册</span></p>
   </div></div>
 </template>
 <script setup>

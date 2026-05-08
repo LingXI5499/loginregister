@@ -141,3 +141,7 @@ CREATE TABLE account_deletion_requests (
                                                    ON DELETE CASCADE
                                                    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='账号注销申请表';
+
+
+
+

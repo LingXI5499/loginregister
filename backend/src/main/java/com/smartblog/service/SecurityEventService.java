@@ -1,1 +1,12 @@
-package com.smartblog.service; import jakarta.servlet.http.HttpServletRequest; import java.time.LocalDateTime; public interface SecurityEventService { void log(Long userId,String eventType,String result,HttpServletRequest request,String detail); int countRecentLoginFailures(String account,String ip,LocalDateTime since); }
+package com.smartblog.service;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+import java.time.LocalDateTime;
+
+public interface SecurityEventService {
+
+    void log(Long userId, String eventType, String result, HttpServletRequest request, String detail);
+
+    int countRecentLoginFailures(String account, String ip, LocalDateTime since);
+}

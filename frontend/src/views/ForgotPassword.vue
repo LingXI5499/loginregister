@@ -5,7 +5,7 @@
     <div class="form-item"><label>验证码</label><input class="input" v-model="form.code" placeholder="请输入验证码" /></div>
     <div class="form-item"><label>新密码</label><input class="input" type="password" v-model="form.newPassword" placeholder="至少 6 位" /></div>
     <button class="btn btn-primary submit-btn" @click="resetPassword" :disabled="loading">{{ loading ? '提交中...' : '重置密码' }}</button>
-    <p class="tip-text"><span @click="$router.push('/login')">返回登录</span></p>
+    <p class="tip-text"><span @click="$router.push('/login')">返回登录</span> · <span @click="$router.push('/cancel-delete')">取消注销</span></p>
   </div></div>
 </template>
 <script setup>

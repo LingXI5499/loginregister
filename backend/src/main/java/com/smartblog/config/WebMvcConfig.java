@@ -1,3 +1,34 @@
 package com.smartblog.config;
-import com.smartblog.interceptor.JwtAuthInterceptor; import org.springframework.context.annotation.Configuration; import org.springframework.web.servlet.config.annotation.*;
-@Configuration public class WebMvcConfig implements WebMvcConfigurer { private final JwtAuthInterceptor jwtAuthInterceptor; public WebMvcConfig(JwtAuthInterceptor jwtAuthInterceptor){this.jwtAuthInterceptor=jwtAuthInterceptor;} public void addInterceptors(InterceptorRegistry registry){registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/api/**").excludePathPatterns("/api/auth/register","/api/auth/login","/api/auth/login/password","/api/auth/email-code/send","/api/auth/login/email-code/send","/api/auth/login/email-code/verify","/api/auth/token/refresh","/api/auth/password/reset/request","/api/auth/password/reset/confirm");} }
+
+import com.smartblog.interceptor.JwtAuthInterceptor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.*;
+
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    private final JwtAuthInterceptor jwtAuthInterceptor;
+
+    public WebMvcConfig(JwtAuthInterceptor jwtAuthInterceptor) {
+        this.jwtAuthInterceptor = jwtAuthInterceptor;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(jwtAuthInterceptor)
+                .addPathPatterns("/api/**")
+                .excludePathPatterns(
+                        "/api/auth/register",
+                        "/api/auth/login",
+                        "/api/auth/login/password",
+                        "/api/auth/email-code/send",
+                        "/api/auth/login/email-code/send",
+                        "/api/auth/login/email-code/verify",
+                        "/api/auth/token/refresh",
+                        "/api/auth/password/reset/request",
+                        "/api/auth/password/reset/confirm",
+                        "/api/account/delete/cancel/code/send",
+                        "/api/account/delete/cancel/confirm"
+                );
+    }
+}

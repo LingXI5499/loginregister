@@ -16,3 +16,5 @@ export const getSessionsApi = () => request({ url: '/auth/sessions', method: 'ge
 export const revokeSessionApi = sessionId => request({ url: `/auth/sessions/${sessionId}`, method: 'delete' })
 export const sendDeleteCodeApi = () => request({ url: '/account/delete/code/send', method: 'post' })
 export const requestDeleteAccountApi = data => request({ url: '/account/delete/request', method: 'post', data })
+export const sendCancelDeleteCodeApi = data => request({ url: '/account/delete/cancel/code/send', method: 'post', data })
+export const cancelDeleteApi = data => request({ url: '/account/delete/cancel/confirm', method: 'post', data })
