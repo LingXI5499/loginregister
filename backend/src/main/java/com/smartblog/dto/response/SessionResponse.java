@@ -1,0 +1,1 @@
+package com.smartblog.dto.response; import java.time.LocalDateTime; public record SessionResponse(String sessionId, String deviceName, String ip, LocalDateTime createTime, LocalDateTime expireTime, Boolean current){}

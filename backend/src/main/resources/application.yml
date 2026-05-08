@@ -1,0 +1,62 @@
+server:
+  port: ${SERVER_PORT:7070}
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: smartblog-auth-backend
+
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/smartblog_auth?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  mail:
+    host: ${MAIL_HOST:smtp.163.com}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_AUTH_CODE}
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: ${MAIL_SMTP_SSL_ENABLE:true}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS_ENABLE:false}
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.smartblog.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-expiration: ${JWT_ACCESS_EXPIRATION:1800000}
+  refresh-expiration-days: ${JWT_REFRESH_EXPIRATION_DAYS:7}
+
+security:
+  login:
+    max-failures: ${LOGIN_MAX_FAILURES:5}
+    failure-window-minutes: ${LOGIN_FAILURE_WINDOW_MINUTES:15}
+  email-code:
+    expire-minutes: ${EMAIL_CODE_EXPIRE_MINUTES:10}
+    send-interval-seconds: ${EMAIL_CODE_SEND_INTERVAL_SECONDS:60}
+    max-send-per-hour-target: ${EMAIL_CODE_MAX_SEND_PER_HOUR_TARGET:5}
+    max-send-per-hour-ip: ${EMAIL_CODE_MAX_SEND_PER_HOUR_IP:20}
+    max-attempts: ${EMAIL_CODE_MAX_ATTEMPTS:5}
+
+logging:
+  level:
+    com.smartblog.mapper: debug
